@@ -1,0 +1,7 @@
+Analogue video senders have the advantage of low manufacturing costs as the audio and video signals are simply modulated onto a carrier at 2.4 GHz or 5.8 GHz. They do, however, have the adverse effect of causing reduced bandwidth to local Wi-Fi networks and, in some cases, Wi-Fi networks can cause picture interference on the video sender signal. More information can be found in the article on electromagnetic interference at 2.4 GHz. To avoid this, some video senders now use a spread-spectrum technology and can co-exist with wireless networks and share available bandwidth.
+
+Usually there are four FM transmit channels, A, B, C & D, with stereo audio on 6.0 MHz and 6.5 MHz FM subcarriers added to the composite video baseband. These different channels can often be used to overcome the adverse effects of nearby WiFi networks.
+
+The reverse remote control channel is usually fixed at 433.92 MHz, using whatever modulation is on the 34 kHz to 45 kHz IR remote "carrier". ASK/OOK schemes such as RC5 and RC6 work best over the RF link as the receiver uses a data slicer and AGC designed for ASK/OOK with Manchester encoding.
+
+Analogue wireless video senders can achieve typical operating distances of up to 60 metres (clear line of sight) with DVD quality (720x576) video resolution and stereo audio.
