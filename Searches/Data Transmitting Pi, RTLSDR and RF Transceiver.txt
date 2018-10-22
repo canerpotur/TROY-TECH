@@ -1,0 +1,11 @@
+
+"Turning the Raspi into a transmitter isn’t really that hard;
+ it only requires a 20cm wire inserted into a GPIO pin, then toggling
+ this pin at about 100 MHz. This resulting signal can be picked up fifty meters away,
+ and through walls, even." : https://hackaday.com/2013/11/09/transmitting-data-with-a-pi-and-rtl-sdr/
+
+Single Chip 2.4GHz Transceiver  nRF24L01+ (Datasheet) :
+	https://www.sparkfun.com/datasheets/Components/SMD/nRF24L01Pluss_Preliminary_Product_Specification_v1_0.pdf
+
+Ultra low power 2 Mbps RF transceiver IC :
+	https://www.nordicsemi.com/eng/Products/2.4GHz-RF/nRF24L01P
