@@ -1,3 +1,0 @@
-It is a very small camera and it can transmit the video (5.8GHz Frequency)
-demo: https://www.youtube.com/watch?v=0pJ47O8LTqU
-purchase: https://goo.gl/WknWHA
