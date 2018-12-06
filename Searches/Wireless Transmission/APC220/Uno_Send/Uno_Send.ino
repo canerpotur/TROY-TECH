@@ -1,16 +1,22 @@
 //uno_send data
 
-boolean flo = 0;
+uint8_t value;
 void setup() {
   Serial.begin(9600);
   pinMode(13, OUTPUT);
 }
 
 void loop() {
-  digitalWrite(13, flo);
-  Serial.println(flo);
+
+
+  value = 0xA3;
+  Serial.print(value);
   Serial.flush();
-  delay(2000);
-  flo = !flo;
+  delay(500);
+
+  value = 0xB7;
+  Serial.print(value);
+  Serial.flush();
+  delay(500);
 
 }

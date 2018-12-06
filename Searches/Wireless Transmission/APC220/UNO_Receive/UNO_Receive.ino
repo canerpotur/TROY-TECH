@@ -9,10 +9,10 @@ void loop() {
   char Data = '2';
   if (Serial.available() > 0) {
     Data = Serial.read();
-    Serial.write(Data);
+    Serial.print(Data);
     Serial.flush();
     
-    Serial.println();
+   // Serial.println();
   }
   switch ( Data ) {
     case  '0':
