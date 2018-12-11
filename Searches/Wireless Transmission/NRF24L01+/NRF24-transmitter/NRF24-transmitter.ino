@@ -5,6 +5,7 @@
 RF24 radio(7,8);
 
 const byte address[6] = "00001";
+uint8_t text;
 
 void setup() {
   Serial.begin(9600);
@@ -17,7 +18,7 @@ void setup() {
 }
 
 void loop() {
-  uint8_t text = 0xA3;
+  text = 0xA3;
   radio.write(&text, sizeof(text));
   delay(300);
   

@@ -22,7 +22,7 @@ void loop() {
   if (radio.available()) {
     radio.read(&text, sizeof(text));
        Serial.print(text, HEX);
-       Serial.print("_"); 
+       Serial.println("....."); 
        
   }
 }
