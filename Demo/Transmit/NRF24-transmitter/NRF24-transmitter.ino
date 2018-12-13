@@ -46,9 +46,9 @@ void joystick_read()
   if (PRESSED_CIRCLE(PSX_PAD1)) {
     but_mem |= 0b10010;
   }
- /* if (RELEASED_CIRCLE(PSX_PAD1)) {
+  if (RELEASED_CIRCLE(PSX_PAD1)) {
     but_mem &= 0b11101;
-  }*/
+  }
   Serial.println(but_mem, BIN);
 
 }
