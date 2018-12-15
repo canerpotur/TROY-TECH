@@ -1,8 +1,8 @@
 
-95-130 dur              50
+95-130 dur          50
 
 ileri
-0-34-3.vites            23
+0-34-3.vites        23
 35-64-2.vites		22	
 65-94-1.vites   	21
 
@@ -11,4 +11,15 @@ GERI
 170-205 2.vites		12
 206-255 3.vites		13
 
+SAĞ
+0-9	1.vites		 	31
+10-49	2.vites 	32
+50-99	3.vites 	33
 
+
+
+SOL
+151-199 1.vites 	41
+200-245	2.vites 	42
+246-255	3.vites 	43
+ 
