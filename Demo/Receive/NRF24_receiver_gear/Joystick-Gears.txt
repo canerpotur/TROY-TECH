@@ -1,0 +1,24 @@
+
+95-130 dur              50
+
+ileri
+0-34-3.vites            23
+35-64-2.vites		22	
+65-94-1.vites   	21
+
+GERI
+131-169 1.vites 	11
+170-205 2.vites		12
+206-255 3.vites		13
+
+SOL
+3. vites 43
+2. vites 42
+1. vites 41
+
+SAÐ
+3.vites 33
+2. vites 32
+1. vites 31
+
+
