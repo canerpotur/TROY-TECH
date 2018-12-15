@@ -34,16 +34,17 @@ pinMode(enB, OUTPUT);
 
 }
 
+1b0001.0000
 
 
 
 void sol_ileri(){
-    analogWrite(enA,  200);   
+    analogWrite(enA,  255);   
     digitalWrite(in2, LOW);
     digitalWrite(in1,  HIGH);  
 
 
-    analogWrite(enB,  200);   
+    analogWrite(enB,  255);   
     digitalWrite(in3, LOW);
     digitalWrite(in4,  HIGH); 
   }
