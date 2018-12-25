@@ -55,83 +55,59 @@ ISR(TIMER1_OVF_vect)
 }
 
 void ileri(int x){
-
-    if(x==23)
-    {
-         
+    if(x==23)    //Low speed
+    {         
       digitalWrite(in2, LOW);
-      digitalWrite(in1,  HIGH);
-    
-         
+      digitalWrite(in1,  HIGH);   
       digitalWrite(in3, LOW);
-      digitalWrite(in4,  HIGH);
-       
+      digitalWrite(in4,  HIGH);       
       analogWrite(enA,  255);
-      analogWrite(enB,  255);
-      
+      analogWrite(enB,  255);      
       }
-
-      if(x==22)
-      {
-      
+      if(x==22) //Average speed
+      {      
       digitalWrite(in2, LOW);
-      digitalWrite(in1,  HIGH);
-    
-       
+      digitalWrite(in1,  HIGH);  
       digitalWrite(in3, LOW);
       digitalWrite(in4,  HIGH); 
-
        analogWrite(enA,  55);  
-       analogWrite(enB,  55);  
-      
+       analogWrite(enB,  55);        
       } 
-
-      if(x==21)
-      {
-         
+      if(x==21)   //Low speed
+      {         
       digitalWrite(in2, LOW);
-      digitalWrite(in1,  HIGH);
-    
-        
+      digitalWrite(in1,  HIGH);   
       digitalWrite(in3, LOW);
       digitalWrite(in4,  HIGH); 
-
       analogWrite(enA,  25);
       analogWrite(enB,  25); 
-      } 
-  
+      }   
   }
 
 void geri(int x){
-
-    if(x==11)
+    if(x==11)     //Low speed
     {
       analogWrite(enA,  25);    
       digitalWrite(in2, HIGH);
-      digitalWrite(in1,  LOW);
-  
+      digitalWrite(in1,  LOW);  
       analogWrite(enB,  25);  
       digitalWrite(in3, HIGH);
       digitalWrite(in4,  LOW);
       }
-
-    if(x==12)
+    if(x==12)   //Average speed
     {
       analogWrite(enA,  55);    
       digitalWrite(in2, HIGH);
-      digitalWrite(in1,  LOW);
-  
+      digitalWrite(in1,  LOW);  
       analogWrite(enB,  55);  
       digitalWrite(in3, HIGH);
       digitalWrite(in4,  LOW);
       }
-
-    if(x==13)
+    if(x==13) //Low speed
     {
       analogWrite(enA,  255);    
       digitalWrite(in2, HIGH);
-      digitalWrite(in1,  LOW);
-  
+      digitalWrite(in1,  LOW);  
       analogWrite(enB,  255);  
       digitalWrite(in3, HIGH);
       digitalWrite(in4,  LOW);
@@ -139,67 +115,64 @@ void geri(int x){
    }
 
 void sol(int x){
-
-    if(x==43)
+    if(x==43) //High speed
     {
-    analogWrite(enB,  255);   //sag ileri
+    analogWrite(enB,  255);   
     digitalWrite(in3, LOW);
     digitalWrite(in4,  HIGH);
-
-    analogWrite(enA,  255);    //sol geri
+    analogWrite(enA,  255);   
     digitalWrite(in2, HIGH);
-    digitalWrite(in1,  LOW);
-      
+    digitalWrite(in1,  LOW);      
       }
-
-      if(x==42)
+      if(x==42)  //Average speed
       {
-    analogWrite(enB,  55);   //sag ileri
+    analogWrite(enB,  55); 
     digitalWrite(in3, LOW);
     digitalWrite(in4,  HIGH);
-
-    analogWrite(enA,  55);    //sol geri
+    analogWrite(enA,  55);   
     digitalWrite(in2, HIGH);
-    digitalWrite(in1,  LOW);
-      
+    digitalWrite(in1,  LOW);      
       } 
+      if(x==41)  //Low speed
+      {
+    analogWrite(enB,  25); 
+    digitalWrite(in3, LOW);
+    digitalWrite(in4,  HIGH);
+    analogWrite(enA,  25);   
+    digitalWrite(in2, HIGH);
+    digitalWrite(in1,  LOW);      
+      }       
 }
+
  void sag(int x){
-
-    if(x==33)
+    if(x==33)  //High speed
     {
-    analogWrite(enA,  255);   //sol ileri
+    analogWrite(enA,  255);  
     digitalWrite(in2, LOW);
-    digitalWrite(in1,  HIGH);  
-
-      analogWrite(enB,  255);  //sag geri
+    digitalWrite(in1,  HIGH); 
+    analogWrite(enB,  255);  
     digitalWrite(in3, HIGH);
     digitalWrite(in4,  LOW);
       }
-
-      if(x==32)
+      if(x==32)  //Average speed
       {
-    analogWrite(enA,  55);   //sol ileri
+    analogWrite(enA,  55);  
+    digitalWrite(in2, LOW);
+    digitalWrite(in1,  HIGH);  
+      analogWrite(enB,  55); 
+    digitalWrite(in3, HIGH);
+    digitalWrite(in4,  LOW);      
+      } 
+      if(x==31)  //Low speed
+      {
+    analogWrite(enA,  25); 
     digitalWrite(in2, LOW);
     digitalWrite(in1,  HIGH);  
 
-      analogWrite(enB,  55);  //sag geri
+      analogWrite(enB,  25); 
     digitalWrite(in3, HIGH);
     digitalWrite(in4,  LOW);
-      
-      } 
-
-      if(x==31)
-      {
-    analogWrite(enA,  25);   //sol ileri
-    digitalWrite(in2, LOW);
-    digitalWrite(in1,  HIGH);  
-
-      analogWrite(enB,  25);  //sag geri
-    digitalWrite(in3, HIGH);
-    digitalWrite(in4,  LOW);
-      } 
-  
+      }   
   }
 
 
