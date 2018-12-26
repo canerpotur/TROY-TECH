@@ -103,7 +103,7 @@ void geri(int x){
       digitalWrite(in3, HIGH);
       digitalWrite(in4,  LOW);
       }
-    if(x==13) //Low speed
+    if(x==13) //High speed
     {
       analogWrite(enA,  255);    
       digitalWrite(in2, HIGH);
