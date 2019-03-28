@@ -4,3 +4,16 @@ Design:
 We are controlling a relay by a transistor which is controlled by arduino, 
 this relay is SPDT relay and it switches between two circuits. First one is to charge capacitors,
 second is to discharge capacitors.
+
+Tests and timeline:
+We tried firstly 1cm stroke solenoid however it is not sufficent for us to satisfy a nice shoot.
+Then we bought a bigger solenoid whose stroke is 3.3cm and we tried to operate it 
+by a 2.2mF capacitor however it is not enough to give desired power.
+
+Then we tested 10mF capacitors with different test setups such as by connecting parallel we set
+our total capacitance as 10mF, 20mF and 30mF.
+
+After test 20mF is a optimum choice by considering the charging time and power given to the 
+solenoid.
+
+
