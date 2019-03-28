@@ -5,3 +5,7 @@ According to M3 and M4 holes, we designed the motor holders, battery holder, and
 They are made by sheet metal from different widths 0.8mm and 2mm.
 
 Results:
+1)The design is consistent with the produced parts.
+2)Our parts are colored as black.
+3)We are now ready to set the total body and try overall robot to play and see 
+whether there is a problem or not.
