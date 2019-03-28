@@ -1,0 +1,6 @@
+Amplifier is tried in the design lab. Results:
+1) Power consumption should be considered, it takes 2A at 12V.
+2)The range cannot be seen significantly improved however we think that it could be because of the structure of E building and whatever exists in the upstairs in power labs.(huge coils etc.)
+3)For the real test we will try to operate it in the real ares where our robot will run.
+
+
