@@ -1,0 +1,6 @@
+Our shooting system uses solenoid and capacitors to operate it.
+
+Design:
+We are controlling a relay by a transistor which is controlled by arduino, 
+this relay is SPDT relay and it switches between two circuits. First one is to charge capacitors,
+second is to discharge capacitors.
