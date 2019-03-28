@@ -16,4 +16,7 @@ our total capacitance as 10mF, 20mF and 30mF.
 After test 20mF is a optimum choice by considering the charging time and power given to the 
 solenoid.
 
-
+Results:
+1)Now, two 10mF capacitors are connected parallel making 20mF and by connecting 50ohm serial
+to that circuit 4 seconds charging time could be achieved.
+2)Arduino is okay with controlling transistor and it's okay with controlling 15A relay.
