@@ -125,16 +125,16 @@ void dur(){
 ///////////Motions of HELEN-V///////
 void MoveLeft()
 {
-  motor1_ileri(43);
-  motor2_ileri(43);
+  motor1_ileri(35);
+  motor2_ileri(35);
   motor3_geri(255);
 }
 
 
 void MoveRight()
 {
-  motor1_geri(43);
-  motor2_geri(43);
+  motor1_geri(35);
+  motor2_geri(35);
   motor3_ileri(255);
 }
 
@@ -207,12 +207,12 @@ void loop() {
 
         if(text==61)
          {
-          MoveRight();
+          MoveLeft();
           }
 
         if(text==62)
          {
-          MoveLeft();
+          MoveRight();
           }
           
         if(text==99)
