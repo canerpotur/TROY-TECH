@@ -12,14 +12,22 @@
 RF24 radio(48,49);
 uint8_t text;
 const byte address[6] = "7";
-const int in1 = 3;    
-const int in2 = 4;     
-const int enA = 5; 
-
-const int in3 = 8;    
-const int in4 = 9;
+////first l298n////
+const int in1 = 8;   
+const int in2 = 9;     
+const int in3 = 10;
+const int in4 = 11;
+const int enA = 5;  //Enable pins for pwms
 const int enB = 6;
 
+
+////second l298n////
+const int in5 =  12;
+const int in6 =  13;
+const int enC = 3;
+
+///shooting/////////
+const int shooting_pin = 30;
 
 void setup() {
   // put your setup code here, to run once:
@@ -41,6 +49,13 @@ pinMode(in3, OUTPUT);
 pinMode(in4, OUTPUT);  
 pinMode(enB, OUTPUT);
 
+pinMode(in5, OUTPUT); 
+pinMode(in6, OUTPUT);  
+pinMode(enC, OUTPUT);
+
+
+pinMode(shooting_pin, OUTPUT);
+digitalWrite(shooting_pin,  LOW); 
 /***** timer ***///
   TCCR1A = 0;
   TCCR1B = 0;    // tüm TCCR1B yazmacını sıfırlar
@@ -52,6 +67,8 @@ pinMode(enB, OUTPUT);
   TCCR1B |= (1 << CS12); //  böleni 8 olarak ayarladık. Yani 16/8 = 2 MHZ
   TIMSK1 |= (1 << TOIE1); // Overflow kesmesini açarız
 
+
+
 }
 
 ISR(TIMER1_OVF_vect)
@@ -61,160 +78,100 @@ ISR(TIMER1_OVF_vect)
  
 }
 
-void ileri(int x){
-    if(x==23)    //Low speed
-    {         
-      digitalWrite(in2, LOW);
-      digitalWrite(in1,  HIGH);   
-      digitalWrite(in3, LOW);
-      digitalWrite(in4,  HIGH);       
-      analogWrite(enA,  255);
-      analogWrite(enB,  255);      
-      }
-      if(x==22) //Average speed
-      {      
-      digitalWrite(in2, LOW);
-      digitalWrite(in1,  HIGH);  
-      digitalWrite(in3, LOW);
-      digitalWrite(in4,  HIGH); 
-       analogWrite(enA,  55);  
-       analogWrite(enB,  55);        
-      } 
-      if(x==21)   //Low speed
-      {         
-      digitalWrite(in2, LOW);
-      digitalWrite(in1,  HIGH);   
-      digitalWrite(in3, LOW);
-      digitalWrite(in4,  HIGH); 
-      analogWrite(enA,  25);
-      analogWrite(enB,  25); 
-      }   
-  }
-
-void geri(int x){
-    if(x==11)     //Low speed
-    {
-      analogWrite(enA,  25);    
-      digitalWrite(in2, HIGH);
-      digitalWrite(in1,  LOW);  
-      analogWrite(enB,  25);  
-      digitalWrite(in3, HIGH);
-      digitalWrite(in4,  LOW);
-      }
-    if(x==12)   //Average speed
-    {
-      analogWrite(enA,  55);    
-      digitalWrite(in2, HIGH);
-      digitalWrite(in1,  LOW);  
-      analogWrite(enB,  55);  
-      digitalWrite(in3, HIGH);
-      digitalWrite(in4,  LOW);
-      }
-    if(x==13) //High speed
-    {
-      analogWrite(enA,  255);    
-      digitalWrite(in2, HIGH);
-      digitalWrite(in1,  LOW);  
-      analogWrite(enB,  255);  
-      digitalWrite(in3, HIGH);
-      digitalWrite(in4,  LOW);
-      }
-   }
-
-void sol(int x){
-    if(x==43) //High speed
-    {
-    analogWrite(enB,  255);   
-    digitalWrite(in3, LOW);
-    digitalWrite(in4,  HIGH);
-    analogWrite(enA,  255);   
-    digitalWrite(in2, HIGH);
-    digitalWrite(in1,  LOW);      
-      }
-      if(x==42)  //Average speed
-      {
-    analogWrite(enB,  55); 
-    digitalWrite(in3, LOW);
-    digitalWrite(in4,  HIGH);
-    analogWrite(enA,  55);   
-    digitalWrite(in2, HIGH);
-    digitalWrite(in1,  LOW);      
-      } 
-      if(x==41)  //Low speed
-      {
-    analogWrite(enB,  25); 
-    digitalWrite(in3, LOW);
-    digitalWrite(in4,  HIGH);
-    analogWrite(enA,  25);   
-    digitalWrite(in2, HIGH);
-    digitalWrite(in1,  LOW);      
-      }       
-}
-
- void sag(int x){
-    if(x==33)  //High speed
-    {
-    analogWrite(enA,  255);  
-    digitalWrite(in2, LOW);
-    digitalWrite(in1,  HIGH); 
-    analogWrite(enB,  255);  
-    digitalWrite(in3, HIGH);
-    digitalWrite(in4,  LOW);
-      }
-      if(x==32)  //Average speed
-      {
-    analogWrite(enA,  55);  
-    digitalWrite(in2, LOW);
-    digitalWrite(in1,  HIGH);  
-      analogWrite(enB,  55); 
-    digitalWrite(in3, HIGH);
-    digitalWrite(in4,  LOW);      
-      } 
-      if(x==31)  //Low speed
-      {
-    analogWrite(enA,  25); 
-    digitalWrite(in2, LOW);
-    digitalWrite(in1,  HIGH);  
-
-      analogWrite(enB,  25); 
-    digitalWrite(in3, HIGH);
-    digitalWrite(in4,  LOW);
-      }   
-  }
-
-
-void sol_ileri(){
-    analogWrite(enA,  200);   
+void motor1_ileri(int Speed){  /////////motor1 saat yönünde döner
+    analogWrite(enA,  Speed);   
     digitalWrite(in2, LOW);
     digitalWrite(in1,  HIGH);  
   }
 
 
-void sag_ileri(){
-    analogWrite(enB,  200);   
-    digitalWrite(in3, LOW);
-    digitalWrite(in4,  HIGH); 
+void motor2_ileri(int Speed){  /////////motor2 saat yönünde döner
+    analogWrite(enB,  Speed);   
+    digitalWrite(in4, LOW);
+    digitalWrite(in3,  HIGH); 
     }
 
-
-void sol_geri(){
-    analogWrite(enA,  200);    
+void motor3_ileri(int Speed){  /////////motor3 saat yönünde döner
+    analogWrite(enC,  Speed);   
+    digitalWrite(in6, LOW);
+    digitalWrite(in5,  HIGH); 
+    }
+       
+void motor1_geri(int Speed){  /////////motor1 saatin tersi yönünde döner
+    analogWrite(enA,  Speed);    
     digitalWrite(in2, HIGH);
     digitalWrite(in1,  LOW); 
    }
 
 
-void sag_geri(){
-    analogWrite(enB,  200);  
-    digitalWrite(in3, HIGH);
-    digitalWrite(in4,  LOW);
+void motor2_geri(int Speed){  /////////motor2 saatin tersi yönünde döner
+    analogWrite(enB,  Speed);  
+    digitalWrite(in4, HIGH);
+    digitalWrite(in3,  LOW);
    }
+
+void motor3_geri(int Speed){  /////////motor3 saatin tersi yönünde döner
+    analogWrite(enC,  Speed);  
+    digitalWrite(in6, HIGH);
+    digitalWrite(in5,  LOW);
+   }   
 
 void dur(){
       analogWrite(enA,  0); 
       analogWrite(enB,  0); 
+      analogWrite(enC,  0); 
   }
 
+///////////Motions of HELEN-V///////
+void MoveLeft()
+{
+  motor1_ileri(43);
+  motor2_ileri(43);
+  motor3_geri(255);
+}
+
+
+void MoveRight()
+{
+  motor1_geri(43);
+  motor2_geri(43);
+  motor3_ileri(255);
+}
+
+void MoveForward()
+{
+  motor1_geri(255);
+  motor2_ileri(255);
+}
+
+
+void MoveBackward()
+{
+  motor1_ileri(255);
+  motor2_geri(255);
+}
+
+void TurnCV()
+{
+  motor1_ileri(255);
+  motor2_ileri(255);
+  motor3_ileri(255);
+}
+
+
+void TurnCCV()
+{
+  motor1_geri(255);
+  motor2_geri(255);
+  motor3_geri(255);
+}
+
+void Shoot()
+{
+ digitalWrite(shooting_pin, HIGH);
+  delay(120); 
+  digitalWrite(shooting_pin, LOW);
+}
 
 void loop() {
   if (radio.available()) {
@@ -230,22 +187,37 @@ void loop() {
   
         if(text==21 || text==22 || text==23 )
          {
-          ileri(text);
+          MoveForward();
           }
 
            if(text==11 || text==12 || text==13 )
          {
-          geri(text);
+          MoveBackward();
           }
 
           if(text==43 || text==42 || text==41 )
          {
-          sol(text);
+          TurnCCV();
           }
 
           if(text==33 || text==32 || text==31 )
          {
-          sag(text);
+          TurnCV();
+          }
+
+        if(text==61)
+         {
+          MoveRight();
+          }
+
+        if(text==62)
+         {
+          MoveLeft();
+          }
+          
+        if(text==99)
+         {
+          Shoot();
           }
      
   
