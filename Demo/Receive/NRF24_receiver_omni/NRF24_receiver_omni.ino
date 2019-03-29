@@ -2,8 +2,14 @@
 #include <nRF24L01.h>
 #include <RF24.h>
 
+/*
+ * green -> 52
+ * purple ->50
+ * blue ->51
+ * SPI for Mega: https://www.arduino.cc/en/Reference/SPI
+ */
 
-RF24 radio(7,2);
+RF24 radio(48,49);
 uint8_t text;
 const byte address[6] = "7";
 const int in1 = 3;    
