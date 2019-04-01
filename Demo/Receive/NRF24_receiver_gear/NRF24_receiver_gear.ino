@@ -2,6 +2,7 @@
 #include <nRF24L01.h>
 #include <RF24.h>
 
+
 RF24 radio(7,2);
 uint8_t text;
 const byte address[6] = "7";

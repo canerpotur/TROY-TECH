@@ -1,0 +1,227 @@
+#include <SPI.h>
+#include <nRF24L01.h>
+#include <RF24.h>
+
+/*
+ * green -> 52
+ * purple ->50
+ * blue ->51
+ * SPI for Mega: https://www.arduino.cc/en/Reference/SPI
+ */
+
+RF24 radio(48,49);
+uint8_t text;
+const byte address[6] = "7";
+////first l298n////
+const int in1 = 8;   
+const int in2 = 9;     
+const int in3 = 10;
+const int in4 = 11;
+const int enA = 5;  //Enable pins for pwms
+const int enB = 6;
+
+
+////second l298n////
+const int in5 =  12;
+const int in6 =  13;
+const int enC = 3;
+
+///shooting/////////
+const int shooting_pin = 30;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  radio.setPayloadSize(1);
+  radio.begin();
+  
+  radio.openReadingPipe(1,address);
+  radio.setPALevel(RF24_PA_MAX);
+  radio.setAutoAck(false);
+  radio.setDataRate(RF24_250KBPS);
+  radio.startListening();
+
+pinMode(in1, OUTPUT); 
+pinMode(in2, OUTPUT);  
+pinMode(enA, OUTPUT);
+
+pinMode(in3, OUTPUT); 
+pinMode(in4, OUTPUT);  
+pinMode(enB, OUTPUT);
+
+pinMode(in5, OUTPUT); 
+pinMode(in6, OUTPUT);  
+pinMode(enC, OUTPUT);
+
+
+pinMode(shooting_pin, OUTPUT);
+digitalWrite(shooting_pin,  LOW); 
+/***** timer ***///
+  TCCR1A = 0;
+  TCCR1B = 0;    // tüm TCCR1B yazmacını sıfırlar
+ 
+  // timer1 için overflow interruptını açar
+  TIMSK1 |= (1 << TOIE1); //Kullandığınız işlemcide bu timer yoksa farklı bir timer ilede aynı ayarları set edebilirsiniz
+ 
+  // CS11 bitini atadık vede timer şuanda clock hızında çalışacaktır.
+  TCCR1B |= (1 << CS12); //  böleni 8 olarak ayarladık. Yani 16/8 = 2 MHZ
+  TIMSK1 |= (1 << TOIE1); // Overflow kesmesini açarız
+
+
+
+}
+
+ISR(TIMER1_OVF_vect)
+{
+ 
+  text=50;
+ 
+}
+
+void motor1_ileri(int Speed){  /////////motor1 saat yönünde döner
+    analogWrite(enA,  Speed);   
+    digitalWrite(in2, LOW);
+    digitalWrite(in1,  HIGH);  
+  }
+
+
+void motor2_ileri(int Speed){  /////////motor2 saat yönünde döner
+    analogWrite(enB,  Speed);   
+    digitalWrite(in4, LOW);
+    digitalWrite(in3,  HIGH); 
+    }
+
+void motor3_ileri(int Speed){  /////////motor3 saat yönünde döner
+    analogWrite(enC,  Speed);   
+    digitalWrite(in6, LOW);
+    digitalWrite(in5,  HIGH); 
+    }
+       
+void motor1_geri(int Speed){  /////////motor1 saatin tersi yönünde döner
+    analogWrite(enA,  Speed);    
+    digitalWrite(in2, HIGH);
+    digitalWrite(in1,  LOW); 
+   }
+
+
+void motor2_geri(int Speed){  /////////motor2 saatin tersi yönünde döner
+    analogWrite(enB,  Speed);  
+    digitalWrite(in4, HIGH);
+    digitalWrite(in3,  LOW);
+   }
+
+void motor3_geri(int Speed){  /////////motor3 saatin tersi yönünde döner
+    analogWrite(enC,  Speed);  
+    digitalWrite(in6, HIGH);
+    digitalWrite(in5,  LOW);
+   }   
+
+void dur(){
+      analogWrite(enA,  0); 
+      analogWrite(enB,  0); 
+      analogWrite(enC,  0); 
+  }
+
+///////////Motions of HELEN-V///////
+void MoveLeft()
+{
+  motor1_ileri(35);
+  motor2_ileri(35);
+  motor3_geri(255);
+}
+
+
+void MoveRight()
+{
+  motor1_geri(35);
+  motor2_geri(35);
+  motor3_ileri(255);
+}
+
+void MoveForward()
+{
+  motor1_geri(255);
+  motor2_ileri(255);
+}
+
+
+void MoveBackward()
+{
+  motor1_ileri(255);
+  motor2_geri(255);
+}
+
+void TurnCV()
+{
+  motor1_ileri(255);
+  motor2_ileri(255);
+  motor3_ileri(255);
+}
+
+
+void TurnCCV()
+{
+  motor1_geri(255);
+  motor2_geri(255);
+  motor3_geri(255);
+}
+
+void Shoot()
+{
+ digitalWrite(shooting_pin, HIGH);
+  delay(120); 
+  digitalWrite(shooting_pin, LOW);
+}
+
+void loop() {
+  if (radio.available()) {
+      radio.read(&text, sizeof(text));   
+  }      
+        Serial.println(text, DEC); 
+        
+
+          if(text==50)
+          {
+            dur();
+          }  
+  
+        if(text==21 || text==22 || text==23 )
+         {
+          MoveForward();
+          }
+
+           if(text==11 || text==12 || text==13 )
+         {
+          MoveBackward();
+          }
+
+          if(text==43 || text==42 || text==41 )
+         {
+          TurnCCV();
+          }
+
+          if(text==33 || text==32 || text==31 )
+         {
+          TurnCV();
+          }
+
+        if(text==61)
+         {
+          MoveLeft();
+          }
+
+        if(text==62)
+         {
+          MoveRight();
+          }
+          
+        if(text==99)
+         {
+          Shoot();
+          }
+     
+  
+
+
+  
+}
