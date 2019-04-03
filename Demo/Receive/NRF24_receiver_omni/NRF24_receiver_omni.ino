@@ -28,6 +28,19 @@ const int enC = 3;
 
 ///shooting/////////
 const int shooting_pin = 30;
+
+
+ const int ShootPin1 = 31;     // Motor sürücümüze bağladığımız pinleri tanımlıyoruz
+  const int ShootPin2 = 32;  
+  const int ShootPin3 = 33; 
+
+
+
+
+
+
+
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
@@ -54,6 +67,17 @@ pinMode(enC, OUTPUT);
 
 
 pinMode(shooting_pin, OUTPUT);
+
+
+pinMode(ShootPin1, OUTPUT);  //Tüm pinlerden güç çıkışı olacağı için OUTPUT olarak ayarladık.
+  pinMode(ShootPin2, OUTPUT); 
+  pinMode(ShootPin3, OUTPUT);  
+
+digitalWrite(ShootPin1,  LOW);  
+ digitalWrite(ShootPin3, HIGH);
+
+
+
 digitalWrite(shooting_pin,  LOW); 
 /***** timer ***///
   TCCR1A = 0;
@@ -195,10 +219,23 @@ void TurnCCV(int Speed2)
 }
 
 void Shoot()
-{
+{/*
  digitalWrite(shooting_pin, HIGH);
   delay(120); 
   digitalWrite(shooting_pin, LOW);
+
+*/
+ digitalWrite(ShootPin2, HIGH);
+  delay(80); 
+  digitalWrite(ShootPin2, LOW);
+
+
+
+
+
+
+
+  
 }
 
 void loop() {
@@ -212,26 +249,26 @@ void loop() {
             dur();
 
 
-      if(text=11)
+      if(text==11)
          MoveForward(30);
         
-     if(text=12)
+     if(text==12)
          MoveForward(155);
      
-           if(text=13)
+           if(text==13)
          MoveForward(255);
 
 
 
 
         
-      if(text=21)
+      if(text==21)
          MoveForwardRight(30);
         
-     if(text=22)
+     if(text==22)
          MoveForwardRight(155);
      
-           if(text=23)
+           if(text==23)
          MoveForwardRight(255);
 
 
@@ -240,33 +277,33 @@ void loop() {
           MoveRight();
 
 
-      if(text=41)
+      if(text==41)
          MoveBackwardRight(30);
         
-     if(text=42)
+     if(text==42)
          MoveBackwardRight(155);
      
-           if(text=43)
+           if(text==43)
          MoveBackwardRight(255);
 
 
-    if(text=51)
+    if(text==51)
          MoveBackward(30);
         
-     if(text=52)
+     if(text==52)
          MoveBackward(155);
      
-           if(text=53)
+           if(text==53)
          MoveBackward(255);
 
 
-      if(text=61)
+      if(text==61)
          MoveBackwardLeft(30);
         
-     if(text=62)
+     if(text==62)
          MoveBackwardLeft(155);
      
-           if(text=63)
+           if(text==63)
          MoveBackwardLeft(255);
 
          
@@ -275,35 +312,35 @@ if(text==71 || text==72 || text==73 )
           MoveLeft();
 
 
-      if(text=81)
+      if(text==81)
          MoveForwardLeft(30);
         
-     if(text=82)
+     if(text==82)
          MoveForwardLeft(155);
      
-           if(text=83)
+           if(text==83)
          MoveForwardLeft(255);
 
 
 
-if(text=101)
+if(text==101)
          TurnCCV(30);
         
-     if(text=102)
+     if(text==102)
          TurnCCV(155);
      
-           if(text=103)
+           if(text==103)
          TurnCCV(255);
 
 
 
-if(text=121)
+if(text==121)
          TurnCV(30);
         
-     if(text=112)
+     if(text==112)
          TurnCV(155);
      
-           if(text=113)
+           if(text==113)
          TurnCV(255);
 
 
