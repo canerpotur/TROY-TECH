@@ -67,6 +67,50 @@ if (RELEASED_R2(PSX_PAD1)==1) {
   if (CROSS_PRESSED == 1  ) {
       but_mem = 99 ;//SHOOT;
     }
+
+
+else if (ANALOG_RIGHT_X(PSX_PAD1)< 101 ||  ANALOG_RIGHT_X(PSX_PAD1)> 149)
+
+{
+  
+  if (ANALOG_RIGHT_X(PSX_PAD1)<10) {
+     but_mem = 103; //TURN CCV FAST
+   }
+
+  if (ANALOG_RIGHT_X(PSX_PAD1)>9 && ANALOG_RIGHT_X(PSX_PAD1)<50) {
+     but_mem = 102;  //TURN CCV NORMAL
+   }
+
+  if (ANALOG_RIGHT_X(PSX_PAD1)>49 && ANALOG_RIGHT_X(PSX_PAD1)<100) {
+     but_mem = 101; //TURN CCV SLOW
+   }
+
+  if (ANALOG_RIGHT_X(PSX_PAD1)>150 && ANALOG_RIGHT_X(PSX_PAD1)<200) {
+     but_mem = 111;  //TURN CV SLOW
+   }
+
+  if (ANALOG_RIGHT_X(PSX_PAD1)>199 && ANALOG_RIGHT_X(PSX_PAD1)<246) {
+     but_mem = 112;   //TURN CV NORMAL
+   }
+
+  if (ANALOG_RIGHT_X(PSX_PAD1)>245 && ANALOG_RIGHT_X(PSX_PAD1)<256) {
+     but_mem = 113;   //TURN CV FAST
+   }
+  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+    
 else
 {
 if(    (   ANALOG_LEFT_Y(PSX_PAD1)<30  &&   ANALOG_LEFT_X(PSX_PAD1)>4    &&   ANALOG_LEFT_X(PSX_PAD1)<65   )
