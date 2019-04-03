@@ -179,19 +179,19 @@ void MoveBackwardLeft(int Speed2)
 
 
 
-void TurnCV()
+void TurnCV(int Speed2)
 {
-  motor1_ileri(255);
-  motor2_ileri(255);
-  motor3_ileri(255);
+  motor1_ileri(Speed2);
+  motor2_ileri(Speed2);
+  motor3_ileri(Speed2);
 }
 
 
-void TurnCCV()
+void TurnCCV(int Speed2)
 {
-  motor1_geri(255);
-  motor2_geri(255);
-  motor3_geri(255);
+  motor1_geri(Speed2);
+  motor2_geri(Speed2);
+  motor3_geri(Speed2);
 }
 
 void Shoot()
@@ -283,6 +283,32 @@ if(text==71 || text==72 || text==73 )
      
            if(text=83)
          MoveForwardLeft(255);
+
+
+
+if(text=101)
+         TurnCCV(30);
+        
+     if(text=102)
+         TurnCCV(155);
+     
+           if(text=103)
+         TurnCCV(255);
+
+
+
+if(text=121)
+         TurnCV(30);
+        
+     if(text=112)
+         TurnCV(155);
+     
+           if(text=113)
+         TurnCV(255);
+
+
+
+
 
           
         if(text==99)
