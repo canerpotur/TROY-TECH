@@ -28,7 +28,6 @@ const int enC = 3;
 
 ///shooting/////////
 const int shooting_pin = 30;
-
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
@@ -138,18 +137,47 @@ void MoveRight()
   motor3_ileri(255);
 }
 
-void MoveForward()
+void MoveForward(int Speed2)
 {
-  motor1_geri(255);
-  motor2_ileri(255);
+  motor1_geri(Speed2);
+  motor2_ileri(Speed2);
 }
 
 
-void MoveBackward()
+void MoveBackward(int Speed2)
 {
-  motor1_ileri(255);
-  motor2_geri(255);
+  motor1_ileri(Speed2);
+  motor2_geri(Speed2);
 }
+
+
+void MoveForwardRight(int Speed2)
+{
+  motor1_geri(Speed2);
+  motor3_ileri(Speed2);
+}
+
+void MoveBackwardRight(int Speed2)
+{
+  motor2_geri(Speed2);
+  motor3_ileri(Speed2);
+}
+
+
+void MoveForwardLeft(int Speed2)
+{
+  motor2_ileri(Speed2);
+  motor3_geri(Speed2);
+}
+
+void MoveBackwardLeft(int Speed2)
+{
+  motor1_ileri(Speed2);
+  motor3_geri(Speed2);
+}
+
+
+
 
 void TurnCV()
 {
@@ -181,39 +209,81 @@ void loop() {
         
 
           if(text==50)
-          {
             dur();
-          }  
-  
-        if(text==21 || text==22 || text==23 )
-         {
-          MoveForward();
-          }
 
-           if(text==11 || text==12 || text==13 )
-         {
-          MoveBackward();
-          }
 
-          if(text==43 || text==42 || text==41 )
-         {
-          TurnCCV();
-          }
+      if(text=11)
+         MoveForward(30);
+        
+     if(text=12)
+         MoveForward(155);
+     
+           if(text=13)
+         MoveForward(255);
 
-          if(text==33 || text==32 || text==31 )
-         {
-          TurnCV();
-          }
 
-        if(text==61)
-         {
-          MoveLeft();
-          }
 
-        if(text==62)
-         {
+
+        
+      if(text=21)
+         MoveForwardRight(30);
+        
+     if(text=22)
+         MoveForwardRight(155);
+     
+           if(text=23)
+         MoveForwardRight(255);
+
+
+
+          if(text==31 || text==32 || text==33 )
           MoveRight();
-          }
+
+
+      if(text=41)
+         MoveBackwardRight(30);
+        
+     if(text=42)
+         MoveBackwardRight(155);
+     
+           if(text=43)
+         MoveBackwardRight(255);
+
+
+    if(text=51)
+         MoveBackward(30);
+        
+     if(text=52)
+         MoveBackward(155);
+     
+           if(text=53)
+         MoveBackward(255);
+
+
+      if(text=61)
+         MoveBackwardLeft(30);
+        
+     if(text=62)
+         MoveBackwardLeft(155);
+     
+           if(text=63)
+         MoveBackwardLeft(255);
+
+         
+
+if(text==71 || text==72 || text==73 )
+          MoveLeft();
+
+
+      if(text=81)
+         MoveForwardLeft(30);
+        
+     if(text=82)
+         MoveForwardLeft(155);
+     
+           if(text=83)
+         MoveForwardLeft(255);
+
           
         if(text==99)
          {
