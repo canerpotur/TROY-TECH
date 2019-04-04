@@ -3,7 +3,14 @@
 #include <RF24.h>
 #include <GPSXClass.h>
 
+/*
+ * green -> 52
+ * purple ->50
+ * blue ->51
+ * SPI for Mega: https://www.arduino.cc/en/Reference/SPI
+ */
 
+ 
 RF24 radio(9,8);
 
 const byte address[6] = "7";
@@ -105,12 +112,6 @@ else if (ANALOG_RIGHT_X(PSX_PAD1)< 101 ||  ANALOG_RIGHT_X(PSX_PAD1)> 149)
 
 
 
-
-
-
-
-
-    
 else
 {
 if(    (   ANALOG_LEFT_Y(PSX_PAD1)<30  &&   ANALOG_LEFT_X(PSX_PAD1)>4    &&   ANALOG_LEFT_X(PSX_PAD1)<65   )
