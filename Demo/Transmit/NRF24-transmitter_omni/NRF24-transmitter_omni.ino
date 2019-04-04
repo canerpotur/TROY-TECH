@@ -112,7 +112,7 @@ else if (ANALOG_RIGHT_X(PSX_PAD1)< 101 ||  ANALOG_RIGHT_X(PSX_PAD1)> 149)
 
 
 
-
+/*
 
 else
 {
@@ -136,8 +136,7 @@ if(    (   ANALOG_LEFT_Y(PSX_PAD1)<30  &&   ANALOG_LEFT_X(PSX_PAD1)>4    &&   AN
       but_mem = 82;//SOL YUKARI CAPRAZ NORMAL;
     }
 
-
-
+*/
 
 
   if (ANALOG_LEFT_Y(PSX_PAD1)<30 &&     ANALOG_LEFT_X(PSX_PAD1)>190    &&   ANALOG_LEFT_X(PSX_PAD1)<251   && R2_PRESSED == 1  ) {
