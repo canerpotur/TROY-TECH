@@ -148,16 +148,16 @@ void dur(){
 ///////////Motions of HELEN-V///////
 void MoveLeft()
 {
-  motor1_ileri(35);
-  motor2_ileri(35);
+  motor1_ileri(44);
+  motor2_ileri(44);
   motor3_geri(255);
 }
 
 
 void MoveRight()
 {
-  motor1_geri(35);
-  motor2_geri(35);
+  motor1_geri(44);
+  motor2_geri(44);
   motor3_ileri(255);
 }
 
@@ -205,17 +205,17 @@ void MoveBackwardLeft(int Speed2)
 
 void TurnCV(int Speed2)
 {
-  motor1_ileri(Speed2);
-  motor2_ileri(Speed2);
-  motor3_ileri(Speed2);
+  motor1_geri(Speed2);
+  motor2_geri(Speed2);
+  motor3_geri(Speed2);
 }
 
 
 void TurnCCV(int Speed2)
 {
-  motor1_geri(Speed2);
-  motor2_geri(Speed2);
-  motor3_geri(Speed2);
+  motor1_ileri(Speed2);
+  motor2_ileri(Speed2);
+  motor3_ileri(Speed2);
 }
 
 void Shoot()
@@ -342,9 +342,6 @@ if(text==121)
      
            if(text==113)
          TurnCV(255);
-
-
-
 
 
           
