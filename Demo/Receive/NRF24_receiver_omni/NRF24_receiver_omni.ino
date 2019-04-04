@@ -34,6 +34,8 @@ const int shooting_pin = 30;
   const int ShootPin2 = 32;  
   const int ShootPin3 = 33; 
 
+//prev_text for understanding changes
+int prev_text = 0;
 
 
 
@@ -222,31 +224,25 @@ void Shoot()
 
 */
  digitalWrite(ShootPin2, HIGH);
-  delay(80); 
+  delay(75); 
   digitalWrite(ShootPin2, LOW);
 
-
-
-
-
-
-
-  
 }
 
 void loop() {
+  
   if (radio.available()) {
       radio.read(&text, sizeof(text));   
   }      
-        Serial.println(text, DEC); 
-        
+     
+        Serial.println(text, DEC);         
 
           if(text==50)
             dur();
 
 
       if(text==11)
-         MoveForward(30);
+         MoveForward(45);
         
      if(text==12)
          MoveForward(155);
@@ -259,7 +255,7 @@ void loop() {
 
         
       if(text==21)
-         MoveForwardRight(30);
+         MoveForwardRight(45);
         
      if(text==22)
          MoveForwardRight(155);
@@ -274,7 +270,7 @@ void loop() {
 
 
       if(text==41)
-         MoveBackwardRight(30);
+         MoveBackwardRight(45);
         
      if(text==42)
          MoveBackwardRight(155);
@@ -284,7 +280,7 @@ void loop() {
 
 
     if(text==51)
-         MoveBackward(30);
+         MoveBackward(45);
         
      if(text==52)
          MoveBackward(155);
@@ -292,7 +288,7 @@ void loop() {
            if(text==53)
          MoveBackward(255);
 
-
+/*
       if(text==61)
          MoveBackwardLeft(30);
         
@@ -302,12 +298,14 @@ void loop() {
            if(text==63)
          MoveBackwardLeft(255);
 
+   */
+
          
 
 if(text==71 || text==72 || text==73 )
           MoveLeft();
 
-
+/*
       if(text==81)
          MoveForwardLeft(30);
         
@@ -316,11 +314,12 @@ if(text==71 || text==72 || text==73 )
      
            if(text==83)
          MoveForwardLeft(255);
+         */
 
 
 
 if(text==101)
-         TurnCCV(30);
+         TurnCCV(40);
         
      if(text==102)
          TurnCCV(155);
@@ -330,8 +329,8 @@ if(text==101)
 
 
 
-if(text==121)
-         TurnCV(30);
+if(text==111)
+         TurnCV(40);
         
      if(text==112)
          TurnCV(155);
