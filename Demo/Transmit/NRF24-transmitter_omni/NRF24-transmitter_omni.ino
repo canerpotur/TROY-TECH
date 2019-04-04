@@ -112,6 +112,8 @@ else if (ANALOG_RIGHT_X(PSX_PAD1)< 101 ||  ANALOG_RIGHT_X(PSX_PAD1)> 149)
 
 
 
+
+
 else
 {
 if(    (   ANALOG_LEFT_Y(PSX_PAD1)<30  &&   ANALOG_LEFT_X(PSX_PAD1)>4    &&   ANALOG_LEFT_X(PSX_PAD1)<65   )
