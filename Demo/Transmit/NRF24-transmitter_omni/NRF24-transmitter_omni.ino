@@ -111,11 +111,11 @@ else if (ANALOG_RIGHT_X(PSX_PAD1)< 101 ||  ANALOG_RIGHT_X(PSX_PAD1)> 149)
 
 
 
-
-/*
-
 else
 {
+
+  /*
+}
 if(    (   ANALOG_LEFT_Y(PSX_PAD1)<30  &&   ANALOG_LEFT_X(PSX_PAD1)>4    &&   ANALOG_LEFT_X(PSX_PAD1)<65   )
     || (   ANALOG_LEFT_Y(PSX_PAD1)<30 &&     ANALOG_LEFT_X(PSX_PAD1)>190    &&   ANALOG_LEFT_X(PSX_PAD1)<251   ) 
     || (   ANALOG_LEFT_Y(PSX_PAD1)>225 &&   ANALOG_LEFT_X(PSX_PAD1)>4    &&   ANALOG_LEFT_X(PSX_PAD1)<65    )
@@ -136,7 +136,7 @@ if(    (   ANALOG_LEFT_Y(PSX_PAD1)<30  &&   ANALOG_LEFT_X(PSX_PAD1)>4    &&   AN
       but_mem = 82;//SOL YUKARI CAPRAZ NORMAL;
     }
 
-*/
+
 
 
   if (ANALOG_LEFT_Y(PSX_PAD1)<30 &&     ANALOG_LEFT_X(PSX_PAD1)>190    &&   ANALOG_LEFT_X(PSX_PAD1)<251   && R2_PRESSED == 1  ) {
@@ -177,7 +177,7 @@ if(    (   ANALOG_LEFT_Y(PSX_PAD1)<30  &&   ANALOG_LEFT_X(PSX_PAD1)>4    &&   AN
       
     
    }
-else{
+else{ */
     if (ANALOG_LEFT_Y(PSX_PAD1)>94 && ANALOG_LEFT_Y(PSX_PAD1)<141) {
      but_mem = 50; //BOŞ
    }
@@ -213,7 +213,6 @@ if (ANALOG_LEFT_X(PSX_PAD1)<10 && R2_PRESSED == 1) {
      but_mem = 73;  //SOL HIZLI
    }
 
-
  else if (ANALOG_LEFT_X(PSX_PAD1)<10 && R1_PRESSED == 1) {
      but_mem = 71;  //SOL YAVAŞ
    }
@@ -235,7 +234,7 @@ if (ANALOG_LEFT_X(PSX_PAD1)<10 && R2_PRESSED == 1) {
   else if (ANALOG_LEFT_X(PSX_PAD1)>245 && ANALOG_LEFT_X(PSX_PAD1)<256) {
      but_mem = 32;  //SAĞ NORMAL
    }
-}
+//}
 }
 }
 
