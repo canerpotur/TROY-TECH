@@ -230,10 +230,13 @@ void Shoot()
 }
 
 void loop() {
-  
+  prev_text=text;
   if (radio.available()) {
       radio.read(&text, sizeof(text));   
   }      
+      if(text !=50 && prev_text!= 50)
+      {
+     
      
         Serial.println(text, DEC);         
 
