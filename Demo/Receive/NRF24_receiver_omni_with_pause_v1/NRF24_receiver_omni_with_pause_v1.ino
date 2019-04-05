@@ -236,7 +236,14 @@ void loop() {
   }      
       if(text !=50 && prev_text!= 50)
       {
-     
+        if(prev_text != text)
+        {
+          dur();
+          dur();
+          dur();
+          delay(1);
+        }
+      } 
      
         Serial.println(text, DEC);         
 
