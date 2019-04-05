@@ -18,13 +18,12 @@ const int in2 = 9;
 const int in3 = 10;
 const int in4 = 11;
 const int enA = 7;  //Enable pins for pwms
-const int enB = 12;
-
+const int enB = 13;
 
 ////second l298n////
 const int in5 =  29;
 const int in6 =  30;
-const int enC = 28;
+const int enC = 2;
 
 ///shooting/////////
 //const int shooting_pin = 30;
@@ -142,16 +141,16 @@ void dur(){
 ///////////Motions of HELEN-V///////
 void MoveLeft()
 {
-  motor1_ileri(44);
-  motor2_ileri(44);
+  motor1_ileri(50);
+  motor2_ileri(50);
   motor3_geri(255);
 }
 
 
 void MoveRight()
 {
-  motor1_geri(44);
-  motor2_geri(44);
+  motor1_geri(50);
+  motor2_geri(50);
   motor3_ileri(255);
 }
 
@@ -226,10 +225,19 @@ void Shoot()
 }
 
 void loop() {
-  
+ prev_text=text;
   if (radio.available()) {
       radio.read(&text, sizeof(text));   
   }      
+      if(text !=50 && prev_text!= 50)
+      {
+        if(prev_text != text)
+        {
+          dur();
+          dur();
+          delay(1);
+        }
+      } 
      
         Serial.println(text, DEC);         
 
@@ -245,8 +253,6 @@ void loop() {
      
            if(text==13)
          MoveForward(255);
-
-
 
 
         
