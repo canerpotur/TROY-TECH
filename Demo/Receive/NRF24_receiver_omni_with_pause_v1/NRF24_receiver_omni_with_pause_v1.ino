@@ -240,7 +240,7 @@ void loop() {
         {
           dur();
           dur();
-          delay(1);
+          delay(10);
         }
       } 
      
