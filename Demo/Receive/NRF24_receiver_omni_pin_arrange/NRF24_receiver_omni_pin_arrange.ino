@@ -18,7 +18,7 @@ const int in2 = 9;
 const int in3 = 10;
 const int in4 = 11;
 const int enA = 7;  //Enable pins for pwms
-const int enB = 13;
+const int enB = 13; //pin 12 is not working with PWM
 
 ////second l298n////
 const int in5 =  29;
@@ -226,16 +226,18 @@ void Shoot()
 
 void loop() {
  prev_text=text;
+ 
   if (radio.available()) {
       radio.read(&text, sizeof(text));   
   }      
-      if(text !=50 && prev_text!= 50)
+      if(text !=50 && prev_text!= 50) //control because timer send dur() in every 2-3 seconds
       {
-        if(prev_text != text)
+        if(prev_text != text)  //if command is changed
         {
           dur();
           dur();
-          delay(10);
+          dur();
+          delay(10); //wait when another command has been received
         }
       } 
      
@@ -243,7 +245,6 @@ void loop() {
 
           if(text==50)
             dur();
-
 
       if(text==11)
          MoveForward(45);
@@ -254,8 +255,7 @@ void loop() {
            if(text==13)
          MoveForward(255);
 
-
-        
+   
       if(text==21)
          MoveForwardRight(45);
         
@@ -264,8 +264,6 @@ void loop() {
      
            if(text==23)
          MoveForwardRight(255);
-
-
 
           if(text==31 || text==32 || text==33 )
           MoveRight();
