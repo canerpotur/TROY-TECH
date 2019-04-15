@@ -1,0 +1,73 @@
+[Version]
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+signature="$Windows NT$"
+DriverVer=03/03/2015,6.40.02
+CatalogFile=debutfilterx86.cat
+
+; Distribution Media information
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+debutfilterx86.sys  = 1,,
+
+[DICopyFiles]
+debutfilterx86.sys
+
+[DestinationDirs]
+; Driver to be installed in the drivers subdirectory.
+DefaultDestDir = 12	; DIRID_DRIVERS
+
+[DefaultInstall]
+CopyFiles = DICopyFiles
+AddReg = ClassFilter_AddReg
+
+[DefaultInstall.Services]
+AddService = debutfilter, , debutfilter_Service_Inst, debutfilter_EventLog_Inst
+
+[DefaultUninstall]
+RequiredEngine = Setupapi
+DelFiles = DICopyFiles
+DelReg = ClassFilter_DelReg
+
+[DefaultUninstall.Services]
+DelService = debutfilter, , debutfilter_Service_Inst, debutfilter_EventLog_Inst
+
+[ClassFilter_AddReg]
+HKLM, System\CurrentControlSet\Control\Class\{4d36e96c-e325-11ce-bfc1-08002be10318}, UpperFilters, 0x00010008, debutfilter
+HKLM, SYSTEM\CurrentControlSet\Services\debutfilter, KeepAlive, %REG_DWORD%, 0
+HKLM, SYSTEM\CurrentControlSet\services\debutfilter, DOS_DEVICE_NAME, %REG_SZ%, DebutFilter		; Device name to connect to
+HKLM, SOFTWARE\NCH Swift Sound\Debut\debutfilter, , %REG_SZ%,  ;
+HKLM, SOFTWARE\NCH Swift Sound\Debut\debutfilter, Driver, %REG_DWORD%, 0;
+
+[ClassFilter_DelReg]
+HKLM, System\CurrentControlSet\Control\Class\{4d36e96c-e325-11ce-bfc1-08002be10318}, UpperFilters, 0x00018002, debutfilter
+HKLM, SYSTEM\CurrentControlSet\Services\debutfilter, KeepAlive, %REG_DWORD%, 0
+HKLM, SYSTEM\CurrentControlSet\services\debutfilter, DOS_DEVICE_NAME, %REG_SZ%, DebutFilter		; Device name to connect to
+HKLM, SOFTWARE\NCH Swift Sound\Debut\debutfilter, , %REG_SZ%,  ;
+HKLM, SOFTWARE\NCH Swift Sound\Debut\debutfilter, Driver, %REG_DWORD%, 0;
+
+[debutfilter_Service_Inst]
+DisplayName = %Debut.SvcDesc%
+ServiceType = %SERVICE_KERNEL_DRIVER%
+StartType = %SERVICE_DEMAND_START%
+ErrorControl = %SERVICE_ERROR_IGNORE%
+ServiceBinary = %12%\debutfilterx86.sys
+
+[debutdriver_EventLog_Inst]
+AddReg = debutdriver_EventLog_AddReg
+
+[debutdriver_EventLog_AddReg]
+HKR,,EventMessageFile, %REG_EXPAND_SZ%,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\debutfilterx86.sys"
+HKR,,TypesSupported, %REG_DWORD%, 7
+
+[Strings]
+Debut.SvcDesc = "Debut Upper Filter Driver v6.40.02"
+
+; Useful constants
+SERVICE_KERNEL_DRIVER = 1
+SERVICE_DEMAND_START = 3
+SERVICE_ERROR_IGNORE = 0
+REG_EXPAND_SZ  = 0x00020000
+REG_DWORD = 0x00010001
