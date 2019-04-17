@@ -99,7 +99,7 @@ if (ANALOG_LEFT_Y(PSX_PAD1)<15 ) {
      but_mem = 13;    //YUKARI HIZLI
    }
 
-else   if (ANALOG_LEFT_Y(PSX_PAD1)>14 && ANALOG_LEFT_Y(PSX_PAD1)<95) {
+else   if (ANALOG_LEFT_Y(PSX_PAD1)>14 && ANALOG_LEFT_Y(PSX_PAD1)<80) {
      but_mem = 11;    //YUKARI YAVAŞ
    }    
 
@@ -108,7 +108,7 @@ else   if (ANALOG_LEFT_Y(PSX_PAD1)>14 && ANALOG_LEFT_Y(PSX_PAD1)<95) {
      but_mem = 53;  //AŞAĞI HIZLI
    }
 
-else   if (ANALOG_LEFT_Y(PSX_PAD1)>140 && ANALOG_LEFT_Y(PSX_PAD1)<241 ) {
+else   if (ANALOG_LEFT_Y(PSX_PAD1)>175 && ANALOG_LEFT_Y(PSX_PAD1)<241 ) {
      but_mem = 51;  //AŞAĞI YAVAŞ
    }
    
@@ -117,7 +117,6 @@ else   if (ANALOG_LEFT_Y(PSX_PAD1)>140 && ANALOG_LEFT_Y(PSX_PAD1)<241 ) {
  else if (ANALOG_LEFT_X(PSX_PAD1)<30 ) {
      but_mem = 72;  //SOL 
    }
-
 
 
 
