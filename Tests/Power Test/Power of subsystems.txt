@@ -1,1 +1,3 @@
 Arduino Mega:
+Camera:
+Accumulator battery life
