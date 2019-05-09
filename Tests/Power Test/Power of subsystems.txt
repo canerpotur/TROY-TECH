@@ -1,13 +1,13 @@
-﻿Arduino Mega:
-Camera:
-Accumulator battery life: 
+Arduino Mega(Empty):      --> 5V * 28.7 mA = 63.5 mW   http://www.gadgetmakersblog.com/arduino-power-consumption/
+Arduino Uno(Empty):       -->
+arduino's compares: -> https://tlextrait.svbtle.com/arduino-power-consumption-compared 
 
-Namiki 22CL-3501PG --> 15W (for 1 motor)
-TS5828S --> 600 mW
-600 TVL camera --> 5V * 120mA = 600 mW
-ROTG02 --> 5V * 300 mA = 1.5 Watt
-NRF24L01 transmitter = 5V* 115mA = 565 mW
-NRF24L01 receiver 	  =  5V* 45mA	= 225 mW
+Namiki 22CL-3501PG            --> 15W (for 1 motor)
+Eachine TS5828S transmitter   --> 600 mW
+600 TVL camera                --> 5V * 120mA = 600 mW
+Eachine ROTG02 FPV receiver   --> 5V * 300 mA = 1.5 Watt
+NRF24L01 transmitter          --> 5V* 115mA = 565 mW
+NRF24L01 receiver 	          --> 5V* 45mA	= 225 mW
 
 
-Solenoid (Shooting)--> P=C*V^2
+Solenoid (Shooting)--> P=C*V^2   v=35v C=?
