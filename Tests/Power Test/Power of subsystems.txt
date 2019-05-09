@@ -1,6 +1,6 @@
-Arduino Mega:
+﻿Arduino Mega:
 Camera:
-Accumulator battery life
+Accumulator battery life: 
 
 Namiki 22CL-3501PG --> 15W (for 1 motor)
 TS5828S --> 600 mW
@@ -10,4 +10,4 @@ NRF24L01 transmitter = 5V* 115mA = 565 mW
 NRF24L01 receiver 	  =  5V* 45mA	= 225 mW
 
 
-Vuruş--> P=C*V^2
+Solenoid (Shooting)--> P=C*V^2
