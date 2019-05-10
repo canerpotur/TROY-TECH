@@ -1,5 +1,5 @@
 Arduino Mega(Empty):      --> 5V * 28.7 mA = 63.5 mW   http://www.gadgetmakersblog.com/arduino-power-consumption/
-Arduino Uno(Empty):       -->
+Arduino Uno(Empty):       --> 5V * 12mA = 60mW http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega48A-PA-88A-PA-168A-PA-328-P-DS-DS40002061A.pdf
 arduino's compares: -> https://tlextrait.svbtle.com/arduino-power-consumption-compared 
 
 Namiki 22CL-3501PG            --> 15W (for 1 motor)
@@ -10,4 +10,4 @@ NRF24L01 transmitter          --> 5V* 115mA = 565 mW
 NRF24L01 receiver 	          --> 5V* 45mA	= 225 mW
 
 
-Solenoid (Shooting)--> P=C*V^2   v=35v C=?
+Solenoid (Shooting)--> P=1/2C*V^2   v=35v C=20000uF P=24.5Watt
