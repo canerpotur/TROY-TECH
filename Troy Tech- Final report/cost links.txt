@@ -1,0 +1,8 @@
+nrf24l01 = https://bit.ly/2Sl34Xk
+TS5828s = https://bit.ly/2QOGyJS
+Camera  = https://bit.ly/2QNpZhs
+Video receiver = https://bit.ly/2ENhqwI
+Arduino Uno = https://bit.ly/2Sl35eb
+Arduino Mega = https://bit.ly/2NNXAD5
+Joystick = https://bit.ly/2Sl3eyf
+
