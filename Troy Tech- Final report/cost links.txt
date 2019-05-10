@@ -5,4 +5,11 @@ Video receiver = https://bit.ly/2ENhqwI
 Arduino Uno = https://bit.ly/2Sl35eb
 Arduino Mega = https://bit.ly/2NNXAD5
 Joystick = https://bit.ly/2Sl3eyf
-
+Antenna = https://bit.ly/2EPMls2
+Signal Amplifier = https://bit.ly/2IYHOXj
+Battery = https://bit.ly/2Cxq9kr
+Solenid = https://bit.ly/2SKavXG
+Powerbank = https://bit.ly/2BCGgez
+DC Motor = Gözeler Elektronik, Konya Sokak, Ulus, Ankara
+Motor driver = https://bit.ly/2EOb1Rf
+Omni Wheel = https://bit.ly/2UpvwIO
