@@ -9,5 +9,4 @@ Eachine ROTG02 FPV receiver   --> 5V * 300 mA = 1.5 Watt
 NRF24L01 transmitter          --> 5V* 115mA = 565 mW
 NRF24L01 receiver 	          --> 5V* 45mA	= 225 mW
 
-
 Solenoid (Shooting)--> P=1/2C*V^2   v=35v C=20000uF P=24.5Watt
