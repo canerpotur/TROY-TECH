@@ -1,2 +1,2 @@
-indoor: 56.11 meter (Inside D building)- 67.58 meter (Between D-E buildings)
-Outdoor: 237.76 meter
+indoor: 56.11 meters (Inside D building)- 67.58 meters (Between D-E buildings)
+Outdoor: 237.76 meters
